@@ -19,7 +19,8 @@ class ProductListAdapter(private val productList: List<Product>) :
 
         fun bind(product: Product) {
             productNameView.text = product.name
-            productPriceView.text = product.price.toString()
+            productPriceView.text = itemView.context.getString(R.string.currency,
+                product.price.toString())
 
             if (product.expiryDate.isNullOrEmpty()) {
                 productExpiryView.visibility = View.GONE
